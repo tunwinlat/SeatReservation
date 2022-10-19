@@ -11,12 +11,16 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 public class Student {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date dob;
     private boolean passed;
-    private double gpa;}
+    private double gpa;
+
+}

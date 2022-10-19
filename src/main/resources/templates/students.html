@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+  <title>Title</title>
+</head>
+<body>
+<h1>List of Students</h1>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th><th>Name</th><th>Date of birth</th><th>Pass</th><th>GPA</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="p:${listStudents}">
+    <td th:text="${p.getId()}"></td>
+    <td th:text="${p.getName()}"></td>
+    <td th:text="${p.getDob()}"></td>
+    <td th:text="${p.passed}"></td>
+    <td th:text="${p.getGpa()}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
