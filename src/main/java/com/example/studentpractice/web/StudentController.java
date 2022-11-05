@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -17,11 +19,16 @@ public class StudentController {
     private StudentRepository studentRepository;
 
     @GetMapping(path = "/index")
-    public String students(Model model){
-
-        List<Student> students = studentRepository.findAll();
+    public String students(Model model, @RequestParam(name = "keyword", defaultValue = "") String keyword) {
+//
+        List<Student> students;
+        if (keyword.isEmpty()) {
+            students = studentRepository.findAll();
+        } else {
+            long key = Long.parseLong(keyword);
+            students = studentRepository.findStudentById(key);
+        }
         model.addAttribute("listStudents", students);
-
         return "students";
     }
 }
