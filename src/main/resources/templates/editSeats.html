@@ -27,34 +27,23 @@ JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
   <div class="col-md-6 offset-3">
     <form method="post" th:action="@{save}">
       <div>
-        <label>ID</label>
-        <input class="form-control" type="text" name="id" th:value="${student.id}">
-        <span th:errors="${student.id}"></span>
+        <label>Seat Code:</label>
+        <input class="form-control" type="text" name="id" th:value="${seat.seatno}">
+        <span th:errors="${seat.seatno}"></span>
       </div>
       <div>
-        <label>Name</label>
+        <label>Customer Name: </label>
         <input class="form-control" type="text" name="name"
-               th:value="${student.name}">
-        <span th:errors="${student.name}"></span>
+               th:value="${seat.name}">
+        <span th:errors="${seat.name}"></span>
       </div>
       <div>
-        <label>Date of Birth</label>
+        <label>Transaction Date: </label>
         <input class="form-control" type="date" name="dob"
-               th:value="${student.dob}">
-        <span th:errors="${student.dob}"></span>
+               th:value="${seat.tdate}">
+        <span th:errors="${seat.tdate}"></span>
       </div>
-      <div>
-        <label>Passed</label>
-        <input type="checkbox" name="passed" th:checked="${student.passed}">
-        <span th:errors="${student.passed}"></span>
-      </div>
-      <div>
-        <label>GPA</label>
-        <input class="form-control" type="text" name="gpa"
-               th:value="${student.gpa}">
-        <span th:errors="${student.gpa}"></span>
-      </div>
-      <button type="submit" class="btn-primary" th:href="@{/index}" >Save</button>
+      <button th:class="btn-success" type="submit" class="btn-primary" th:href="@{/index}" >Save</button>
     </form>
   </div>
 </section>

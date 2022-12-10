@@ -1,4 +1,4 @@
-package com.example.studentpractice.entities;
+package com.example.seatreservation.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,17 +10,16 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Student {
+public class Seat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String name;
+    private String seatno;
 
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern="yyyy-MM-dd")
-    private Date dob;
-    private boolean passed;
-    private double gpa;
+    private Date tdate;
 
 }
